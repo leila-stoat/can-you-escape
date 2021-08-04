@@ -55,7 +55,7 @@ The Front Door is &#39;&#39;locked&#39;&#39;.</tw-passagedata><tw-passagedata pi
 
 (set: $sissy_ending to (macro: str-type _sissy_name, [
     (unless: _sissy_name is in $sissies_found)[(set: $sissies_found to it + (a: _sissy_name))]
-    (output:)[(print: &quot;&lt;img src=&#39;/img/&quot; + _sissy_name + &quot;.png&#39; /&gt;&quot;)]
+    (output:)[(print: &quot;&lt;img src=&#39;img/&quot; + _sissy_name + &quot;.png&#39; /&gt;&quot;)]
 ]))
 }</tw-passagedata><tw-passagedata pid="9" name="Sissy Gallery" tags="" position="349,316" size="100,100">{
 (for: each _sissy, ...$sissies_found)[
