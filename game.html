@@ -123,7 +123,7 @@ The gym is roughly divided in discrete environments. One contains all the weight
 
 [[Visit the Nursery-&gt;Nursery]]
 
-[[Visit the Bathroom-&gt;Bathroom]]</tw-passagedata><tw-passagedata pid="14" name="Basement" tags="" position="850,336" size="100,100">The basement of Stoat Manor is, as expected, a dark and cold place carved into the soil below the manor.
+[[Visit the Bathroom-&gt;Bathroom]]</tw-passagedata><tw-passagedata pid="14" name="Basement" tags="" position="846.6666666666666,336" size="100,100">The basement of Stoat Manor is, as expected, a dark and cold place carved into the soil below the manor.
 
 [[Visit the Dungeon-&gt;Dungeon]]
 
@@ -173,9 +173,10 @@ There&#39;s seemingly not much of your interest here. There&#39;s a closet linin
 
 [[Look in the crib-&gt;Baby]]
 
-[[Return-&gt;Upper Floor]] </tw-passagedata><tw-passagedata pid="20" name="Bathroom" tags="" position="853,788" size="100,100">[[Return-&gt;Upper Floor]] </tw-passagedata><tw-passagedata pid="21" name="Dungeon" tags="" position="1006,495" size="100,100">[[Return-&gt;Basement]]</tw-passagedata><tw-passagedata pid="22" name="Studio" tags="" position="1016,213" size="100,100">[[Return-&gt;Basement]]</tw-passagedata><tw-passagedata pid="23" name="Storage" tags="" position="1008,347" size="100,100">The underground storage is has nothing but shelves of boxes and tins, organized side by side and separated by [[dark curtains-&gt;Control Room]].
+[[Return-&gt;Upper Floor]] </tw-passagedata><tw-passagedata pid="20" name="Bathroom" tags="" position="853,788" size="100,100">[[Return-&gt;Upper Floor]] </tw-passagedata><tw-passagedata pid="21" name="Dungeon" tags="" position="1006,495" size="100,100">[[Return-&gt;Basement]]</tw-passagedata><tw-passagedata pid="22" name="Studio" tags="" position="1011,201.33333333333334" size="100,100">[[Return-&gt;Basement]]</tw-passagedata><tw-passagedata pid="23" name="Storage" tags="" position="1056.3333333333333,348.6666666666667" size="100,100">The underground storage is has nothing but shelves of boxes and tins, organized side by side and separated by dark curtains.
 
-[[Return-&gt;Basement]]</tw-passagedata><tw-passagedata pid="24" name="Control Room" tags="" position="1181,347" size="100,100">|leila&gt;[(link: &quot;...&quot;)[
+[[Return-&gt;Basement]]
+(if: $control_room_discovered)[(click-goto: &quot;dark curtains&quot;, &quot;Control Room&quot;)]</tw-passagedata><tw-passagedata pid="24" name="Control Room" tags="" position="1181,347" size="100,100">|leila&gt;[(link: &quot;...&quot;)[
 
 Oh, what a clever sissy we are, huh? I bet you never heard of paying no mind to the woman behind the curtain...
 
@@ -243,7 +244,45 @@ The spandex stretches and hugs your legs as your foot goes up and up above your 
 
 |leila&gt;[Excellent stretch, sissy. You&#39;re now ready for the exercises... kick, kick, pirouette, and you&#39;ll be ready for your big recital in no time. Now go on your tippy-toes into the mirrored hall, so you can see yourself as you twirl and frolic, my primaballerina!]
 
-($sissy_ending: &quot;ballerina&quot;)</tw-passagedata><tw-passagedata pid="33" name="Gamer Gurls" tags="" position="45,512" size="100,100">Double-click this passage to edit it.</tw-passagedata><tw-passagedata pid="34" name="Sissy Secretary" tags="" position="54,704" size="100,100">Double-click this passage to edit it.</tw-passagedata><tw-passagedata pid="35" name="Gym Lovers" tags="sissy-ending" position="343.6666666666667,1135.3333333333333" size="100,100">You call the Jock to help you check the lockers, not wanting to be cornered inside a stall or something like that. Besides, he&#39;s a big guy, could be useful to lift or push any suspicious furniture that needs investigation, right?
+($sissy_ending: &quot;ballerina&quot;)</tw-passagedata><tw-passagedata pid="33" name="Gamer Gurls" tags="sissy-ending" position="45,512" size="100,100">You sit down on the chair and try to turn on the computer... obviously, there&#39;s a login screen, asking for a password.
+
+(link: &quot;Ask the Nerd for help&quot;)[==
+&quot;Oh, sure, that should be easy...&quot; the Nerd says, dismissively, as he takes your place and starts to type away, escaping into a text terminal and running a lot of commands you can&#39;t quite understand. Not much to do but waiting, you guess...
+
+(link: &quot;Open a drawer&quot;)[==
+In curiosity, you reach for the drawers under the desk, and find a pair of pink game controllers. Almost immediately, the Nerd calls your attention.
+
+&quot;So, I think I found a way in. This security system apparently redirects into a puzzle game. We&#39;ll have to play to break the code.&quot;
+
+You look at the computer screen in disbelief, as a colorful game title screen is pulsating in invitation.
+
+(link: &quot;Connect the controllers&quot;)[==
+You insert the USB connectors on the side of the PC and give one to the Nerd. There&#39;s only one chair and you&#39;re not in the mood to be standing up for however long this takes, so you squeeze yourself at his side, elbow by elbow, and begin.
+
+Level after level is beaten, with no indication of when it&#39;ll stop. As the game goes on, you feel a connection with your partner as you cooperate to solve the puzzles. You become very close, cheering for each other with each victory. The cheering also gets more and more enthusiastic.
+
+Around level 255, you don&#39;t quite remember what you were doing, you&#39;re just too distracted kissing your favorite Player 2!
+
+|leila&gt;[Enough fun and games, you too. Better get you out and on your way to the arcade, I&#39;ll need that computer for actual business reasons.
+
+Although, at this point, maybe you&#39;ll be more interesting in playing with each other&#39;s joysticks... but either way, out of the office, play time&#39;s over!]
+
+($sissy_ending: &quot;gamer_gurls&quot;)</tw-passagedata><tw-passagedata pid="34" name="Sissy Secretary" tags="sissy-ending" position="54,704" size="100,100">You open a drawer of the file, revealing so many folders and documents in them... what is all this, you wonder? An index of sissified victims? Of future victims? A load of clerical stuff with no relation to any of this weird business?
+
+(click: &quot;documents&quot;)[==
+You pluck a document from inside. //Dress Code//. Huh. That&#39;s oddly... mundane. You skim through it. //Blouse, flared collar, thin fabric//... //Shoulder pads: optional//... //Pencil skirt, maximum length from knees: 2 inches//... //Minimum heel size: 5 inches//. Formal, but also skimpy...
+
+(link: &quot;*speaker crackle*&quot;)[==
+|leila&gt;[Ahem! Missy? Dictation, if you will...]
+
+(link: &quot;Pick up pencil and notepad&quot;)[==
+You pick up a clipboard with a pencil and stand upright, balancing on top of your fine 6&quot; heels.
+
+|leila&gt;[It is with utmost honor and fanfare that I announce the ingression of our newest sissy secretary into our prestigious sissy staff. As customary, the newest secretary shall report to the secretarial pool manager down at the Sissy Bureau for her new name and duties. All are encouraged to show hospitality and welcome our newest darling with a pinch on the buttocks! Toodles, Leila!
+
+Aaand that&#39;s it. Now be a darling and read it back for me, yes?]
+
+($sissy_ending: &quot;secretary&quot;)</tw-passagedata><tw-passagedata pid="35" name="Gym Lovers" tags="sissy-ending" position="343.6666666666667,1135.3333333333333" size="100,100">You call the Jock to help you check the lockers, not wanting to be cornered inside a stall or something like that. Besides, he&#39;s a big guy, could be useful to lift or push any suspicious furniture that needs investigation, right?
 
 (click: &quot;stall&quot;)[==
 The shower stalls are very badly lit, but the little light that comes in reveals to you a way out: a window! It&#39;s not too high either, you probably just need a little boost...
