@@ -15,7 +15,7 @@
   padding: 4%;
   background-image: url("img/sissy_frame.png");
   background-size: 100%;
-}</style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-tag name="footer" color="blue"></tw-tag>,<tw-tag name="header" color="blue"></tw-tag>,<tw-tag name="sissy" color="purple"></tw-tag>,<tw-tag name="sissy-ending" color="purple"></tw-tag>,<tw-tag name="startup" color="blue"></tw-tag><tw-passagedata pid="1" name="Intro" tags="" position="401,58" size="100,100">...
+}</style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-tag name="deadend" color="red"></tw-tag>,<tw-tag name="footer" color="blue"></tw-tag>,<tw-tag name="header" color="blue"></tw-tag>,<tw-tag name="sissy" color="purple"></tw-tag>,<tw-tag name="sissy-ending" color="purple"></tw-tag>,<tw-tag name="startup" color="blue"></tw-tag><tw-passagedata pid="1" name="Intro" tags="" position="401,58" size="100,100">...
 
 [[Wake up-&gt;Holding Cell]]</tw-passagedata><tw-passagedata pid="2" name="Holding Cell" tags="" position="601,201" size="100,100">|leila&gt;[Wake up, sissy boy!
 
@@ -78,7 +78,7 @@ There are doors into a myriad of rooms, a door that leads out, and stairs going 
     (unless: _sissy_name is in $sissies_found)[(set: $sissies_found to it + (a: _sissy_name))]
     (output:)[(print: &quot;&lt;img src=&#39;img/&quot; + _sissy_name + &quot;.png&#39; /&gt;&quot;)]
 ]))
-}</tw-passagedata><tw-passagedata pid="9" name="Sissy Gallery" tags="" position="352.3333333333333,317.6666666666667" size="100,100">{
+}</tw-passagedata><tw-passagedata pid="9" name="Sissy Gallery" tags="" position="352,317" size="100,100">{
 (for: each _sissy, ...$sissies_found)[
 	(print: &quot;&lt;img class=&#39;gallery&#39; src=&#39;img/&quot; + _sissy + &quot;.png&#39; /&gt;&quot;)
 ]
@@ -101,7 +101,7 @@ The kitchen is very large and pristine, as if no one ever had used it for cookin
 
 [[Look into the file cabinet-&gt;Sissy Secretary]]
 
-[[Return-&gt;Ground Floor]] </tw-passagedata><tw-passagedata pid="12" name="Gym" tags="" position="214.66666666666666,907.6666666666666" size="100,100">The rubber mat floor squeaks under your feet. Weights, mats, ropes and all sorts of equipment are laid all over the place, and heavy thumping music blares from speakers on the ceilin... that is, when they&#39;re not used by the owner of the house for communication.
+[[Return-&gt;Ground Floor]] </tw-passagedata><tw-passagedata pid="12" name="Gym" tags="" position="214,907" size="100,100">The rubber mat floor squeaks under your feet. Weights, mats, ropes and all sorts of equipment are laid all over the place, and heavy thumping music blares from speakers on the ceilin... that is, when they&#39;re not used by the owner of the house for communication.
 
 |leila&gt;[Well, sissies need to keep fit and pretty somehow, don&#39;t they? This is where my sissies get to sweat, and let&#39;s say some of them really like it here...]
 
@@ -123,7 +123,7 @@ The gym is roughly divided in discrete environments. One contains all the weight
 
 [[Visit the Nursery-&gt;Nursery]]
 
-[[Visit the Bathroom-&gt;Bathroom]]</tw-passagedata><tw-passagedata pid="14" name="Basement" tags="" position="846.6666666666666,336" size="100,100">The basement of Stoat Manor is, as expected, a dark and cold place carved into the soil below the manor.
+[[Visit the Bathroom-&gt;Bathroom]]</tw-passagedata><tw-passagedata pid="14" name="Basement" tags="" position="846,336" size="100,100">The basement of Stoat Manor is, as expected, a dark and cold place carved into the soil below the manor.
 
 [[Visit the Dungeon-&gt;Dungeon]]
 
@@ -161,7 +161,7 @@ You giggle. Of course you are. You set it all up on a plate, neatly aligned, bre
 (if: $jock_location is (passage:)&#39;s  name)[
 	(show: ?jock_here)
 ]
-</tw-passagedata><tw-passagedata pid="18" name="Master Bedroom" tags="" position="850,502" size="100,100">[[Return-&gt;Upper Floor]] </tw-passagedata><tw-passagedata pid="19" name="Nursery" tags="" position="865,644" size="100,100">The nursery is all decorated in pink, from the walls to the carpeted floor and every single piece of baby-safe furniture.
+</tw-passagedata><tw-passagedata pid="18" name="Master Bedroom" tags="" position="850,502" size="100,100">[[Return-&gt;Upper Floor]] </tw-passagedata><tw-passagedata pid="19" name="Nursery" tags="" position="865,642.3333333333334" size="100,100">The nursery is all decorated in pink, from the walls to the carpeted floor and every single piece of baby-safe furniture.
 
 |leila&gt;[Interesting choice of place to visit, sissy. Is it calling to you? Will you be needing a change any time soon...?]
 
@@ -173,7 +173,11 @@ There&#39;s seemingly not much of your interest here. There&#39;s a closet linin
 
 [[Look in the crib-&gt;Baby]]
 
-[[Return-&gt;Upper Floor]] </tw-passagedata><tw-passagedata pid="20" name="Bathroom" tags="" position="853,788" size="100,100">[[Return-&gt;Upper Floor]] </tw-passagedata><tw-passagedata pid="21" name="Dungeon" tags="" position="1006,495" size="100,100">[[Return-&gt;Basement]]</tw-passagedata><tw-passagedata pid="22" name="Studio" tags="" position="1011,201.33333333333334" size="100,100">[[Return-&gt;Basement]]</tw-passagedata><tw-passagedata pid="23" name="Storage" tags="" position="1056.3333333333333,348.6666666666667" size="100,100">The underground storage is has nothing but shelves of boxes and tins, organized side by side and separated by dark curtains.
+[[Return-&gt;Upper Floor]] </tw-passagedata><tw-passagedata pid="20" name="Bathroom" tags="" position="853,788" size="100,100">[[Return-&gt;Upper Floor]] </tw-passagedata><tw-passagedata pid="21" name="Dungeon" tags="deadend" position="1006,495" size="100,100">The dungeon is badly lit and quite hot and humid. All around you can see sex toys, contraptions and menacing instruments that you can&#39;t even imagine how they would interact with a human body. You can only suppose it might hurt.
+
+You start to realize you&#39;d better not be here.
+
+[[Return-&gt;Basement]]</tw-passagedata><tw-passagedata pid="22" name="Studio" tags="" position="1011,201" size="100,100">[[Return-&gt;Basement]]</tw-passagedata><tw-passagedata pid="23" name="Storage" tags="deadend" position="1056,348" size="100,100">The underground storage is has nothing but shelves of boxes and tins, organized side by side and separated by dark curtains.
 
 [[Return-&gt;Basement]]
 (if: $control_room_discovered)[(click-goto: &quot;dark curtains&quot;, &quot;Control Room&quot;)]</tw-passagedata><tw-passagedata pid="24" name="Control Room" tags="" position="1181,347" size="100,100">|leila&gt;[(link: &quot;...&quot;)[
@@ -182,7 +186,25 @@ Oh, what a clever sissy we are, huh? I bet you never heard of paying no mind to 
 
 No harm done, though. You found my control room, so what? It&#39;s time to have fun, then. You came to me, after all, so I&#39;ll take that as an offering...
 
-($sissy_ending: &quot;willing_sissy&quot;)]]</tw-passagedata><tw-passagedata pid="25" name="Babysitter" tags="" position="1171,573" size="100,100">Double-click this passage to edit it.</tw-passagedata><tw-passagedata pid="26" name="Baby" tags="sissy-ending" position="1166,696" size="100,100">The crib is lined with pink blankets and fluffy pillows and stuffed animals, and it all smells of soft baby powder...
+($sissy_ending: &quot;willing_sissy&quot;)]]</tw-passagedata><tw-passagedata pid="25" name="Babysitter" tags="sissy-ending" position="1171,566.3333333333334" size="100,100">The closet is full of outfits overflowing with cutesy and priss, from short dresses and tutus flaring with glitter to adorable overalls and onesies in pastel tones and infantile patterns. They&#39;re matched with feminine shoes and head dresses, bows and bracelets, all sorts of girly apparel in plastic and cloth.
+
+And underneath it all, a big bulging diaper bag sits amidst it all.
+
+(click: &quot;diaper bag&quot;)[==The bag is heavy, but not as heavy as its volume seems to imply. Probably full of fluffy light things, a lot of diapers or empty bottles...
+
+Your idle speculation is cut short by the crackling sound of speakers, and the perky voice behind calls out.
+
+|leila&gt;[Well, look who we have here...]
+
+(link-reveal: &quot;Turn around&quot;)[==You spin on your ankles so fast your hair continues spinning and brushes you back on the side of the head.
+
+But, hold on...
+
+|leila&gt;[Aren&#39;t you adorable? I love my sissies very much, but I&#39;m a busy mistress, lots of things to care for at once... sometimes it helps to have someone to share the load, and all the better if a sissy can do the job of caring or those sissies more in need of attention...
+
+Anyway, get ready for a whole lot of responsibilities, darling. No two sissy babies are the same, and I am very intent on giving my babies the best care. Or else... well, let&#39;s say there are always a spot open in the babies&#39; roster to be filled, and a new position for a babysitter can be opened for someon who, hopefully, won&#39;t screw up as easily. Got it?]
+
+($sissy_ending: &quot;babysitter&quot;)</tw-passagedata><tw-passagedata pid="26" name="Baby" tags="sissy-ending" position="1166,696" size="100,100">The crib is lined with pink blankets and fluffy pillows and stuffed animals, and it all smells of soft baby powder...
 
 (click: &quot;crib&quot;)[==You realize only too late that you&#39;ve climbed over the railing and into the softness as you were trapped behind bars. Your backside falls onto layers of cushion as your diapers touch down on blankets and mattress, letting you softly lie down with your legs up, watching the lulling sway of the mobile above.
 
@@ -194,7 +216,7 @@ Isn&#39;t that sweet, little babe?]
 
 ($sissy_ending: &quot;baby&quot;)</tw-passagedata><tw-passagedata pid="27" name="Nursery Stash" tags="" position="1159,822" size="100,100">Under the changing table are these doors, a place for supplies. Diapers, baby powder, oil, wipes... (link-reveal: &quot;a pacifier?&quot;)[===
 
-You pick up the odd item, wondering if it&#39;s misplaced. You put it in your pocket and pays no mind to it.
+You pick up the odd item, wondering if it&#39;s misplaced. You put it in your pocket and pay no mind to it.
 
 (set: $inventory to it + (a: &quot;pacifier&quot;))\
 [[Close the stash-&gt;Nursery]]</tw-passagedata><tw-passagedata pid="28" name="Gymbo" tags="sissy-ending" position="35,852" size="100,100">The weights on the rack are not very large, surely this gym was not meant for large gains and heavy bodybuilding. And to make matters more vexxing, all of them are pink.
@@ -282,7 +304,7 @@ You pick up a clipboard with a pencil and stand upright, balancing on top of you
 
 Aaand that&#39;s it. Now be a darling and read it back for me, yes?]
 
-($sissy_ending: &quot;secretary&quot;)</tw-passagedata><tw-passagedata pid="35" name="Gym Lovers" tags="sissy-ending" position="343.6666666666667,1135.3333333333333" size="100,100">You call the Jock to help you check the lockers, not wanting to be cornered inside a stall or something like that. Besides, he&#39;s a big guy, could be useful to lift or push any suspicious furniture that needs investigation, right?
+($sissy_ending: &quot;secretary&quot;)</tw-passagedata><tw-passagedata pid="35" name="Gym Lovers" tags="sissy-ending" position="343,1135" size="100,100">You call the Jock to help you check the lockers, not wanting to be cornered inside a stall or something like that. Besides, he&#39;s a big guy, could be useful to lift or push any suspicious furniture that needs investigation, right?
 
 (click: &quot;stall&quot;)[==
 The shower stalls are very badly lit, but the little light that comes in reveals to you a way out: a window! It&#39;s not too high either, you probably just need a little boost...
