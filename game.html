@@ -15,7 +15,7 @@
   padding: 4%;
   background-image: url("img/sissy_frame.png");
   background-size: 100%;
-}</style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-tag name="deadend" color="red"></tw-tag>,<tw-tag name="footer" color="blue"></tw-tag>,<tw-tag name="header" color="blue"></tw-tag>,<tw-tag name="sissy" color="purple"></tw-tag>,<tw-tag name="sissy-ending" color="purple"></tw-tag>,<tw-tag name="startup" color="blue"></tw-tag><tw-passagedata pid="1" name="Intro" tags="" position="401,58" size="100,100">...
+}</style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-tag name="deadend" color="red"></tw-tag>,<tw-tag name="footer" color="blue"></tw-tag>,<tw-tag name="header" color="blue"></tw-tag>,<tw-tag name="impossible" color="yellow"></tw-tag>,<tw-tag name="sissy" color="purple"></tw-tag>,<tw-tag name="sissy-ending" color="purple"></tw-tag>,<tw-tag name="startup" color="blue"></tw-tag><tw-passagedata pid="1" name="Intro" tags="" position="401,58" size="100,100">...
 
 [[Wake up-&gt;Holding Cell]]</tw-passagedata><tw-passagedata pid="2" name="Holding Cell" tags="" position="601,201" size="100,100">|leila&gt;[Wake up, sissy boy!
 
@@ -55,7 +55,7 @@ There are doors into a myriad of rooms, a door that leads out, and stairs going 
 (link: &quot;Try Again?&quot;)[
 (display: &quot;Game Setup&quot;)
 (go-to: &quot;Holding Cell&quot;)
-]]</tw-passagedata><tw-passagedata pid="6" name="Game Setup" tags="startup" position="135,85" size="100,100">{
+]]</tw-passagedata><tw-passagedata pid="6" name="Game Setup" tags="startup" position="136,85" size="100,100">{
 (set: $inventory to (a:))
 
 (set: $jock_location to &quot;Upper Floor&quot;)
@@ -72,6 +72,7 @@ There are doors into a myriad of rooms, a door that leads out, and stairs going 
 	&quot;maid&quot;, (dm: &quot;name&quot;, &quot;Sissy French Maid&quot;)
 ))
 (set: $sissies_found to (a:))
+(set: $control_room_discovered to false)
 }</tw-passagedata><tw-passagedata pid="8" name="Header: Macros" tags="header" position="75,203" size="100,100">{
 
 (set: $sissy_ending to (macro: str-type _sissy_name, [
@@ -117,19 +118,23 @@ The gym is roughly divided in discrete environments. One contains all the weight
 
 |jock_here)[[[Search the locker room-&gt;Gym Lovers]]]
 
-[[Return-&gt;Ground Floor]] </tw-passagedata><tw-passagedata pid="13" name="Upper Floor" tags="" position="614,638" size="100,100">The upper floor of Stoat Manor is organized around a long hallway that loops around the building.
+[[Return-&gt;Ground Floor]] </tw-passagedata><tw-passagedata pid="13" name="Upper Floor" tags="" position="685.6666666666666,818" size="100,100">The upper floor of Stoat Manor is organized around a long hallway that loops around the building.
 
 [[Visit the Master Bedroom-&gt;Master Bedroom]]
 
 [[Visit the Nursery-&gt;Nursery]]
 
-[[Visit the Bathroom-&gt;Bathroom]]</tw-passagedata><tw-passagedata pid="14" name="Basement" tags="" position="846,336" size="100,100">The basement of Stoat Manor is, as expected, a dark and cold place carved into the soil below the manor.
+[[Visit the Bathroom-&gt;Bathroom]]
+
+[[Return downstairs-&gt;Ground Floor]]</tw-passagedata><tw-passagedata pid="14" name="Basement" tags="" position="846,336" size="100,100">The basement of Stoat Manor is, as expected, a dark and cold place carved into the soil below the manor.
 
 [[Visit the Dungeon-&gt;Dungeon]]
 
 [[Visit the Studio-&gt;Studio]]
 
-[[Visit the Storage-&gt;Storage]]</tw-passagedata><tw-passagedata pid="15" name="French Maid" tags="sissy-ending" position="504,1127" size="100,100">In the cupboard there are cleaning utensils and materials, brooms, buckets... and a feather duster.
+[[Visit the Storage-&gt;Storage]]
+
+[[Return upstairs-&gt;Ground Floor]]</tw-passagedata><tw-passagedata pid="15" name="French Maid" tags="sissy-ending" position="504,1127" size="100,100">In the cupboard there are cleaning utensils and materials, brooms, buckets... and a feather duster.
 
 (click:&quot;feather duster&quot;)[==
 You pick up the duster, not putting any mind to it. It just feels natural, and it matches you, doesn&#39;t it? The black and white-tipped scheme really fits with your black flowing dress accented with white petticoats and frilly apron.
@@ -147,11 +152,10 @@ You giggle. Of course you are. You set it all up on a plate, neatly aligned, bre
 
 |leila&gt;[Adorable. A doting wife for a perfect husband. Mind you, the husband will not remain that way for long... but one thing at a time. You&#39;re the first target, darling, so enjoy your lovely honeymoon now that you are a proper housewife...]
 
-($sissy_ending: &quot;housewife&quot;)</tw-passagedata><tw-passagedata pid="17" name="Footer: enchantments" tags="footer" position="140,335" size="100,100">(enchant: ?leila, (css: &quot;padding: 8pt&quot;) + (text-size: 0.75) + (text-style: &quot;italic&quot;, &quot;emboss&quot;) + (box: &quot;=XXXXXXXX=&quot;) + (color: (rgb: 0, 0, 0, 0.5)) + (background: (rgb: 255, 128, 128)))
-(if: visits &gt; 1)[
+($sissy_ending: &quot;housewife&quot;)</tw-passagedata><tw-passagedata pid="17" name="Footer: enchantments" tags="footer" position="140,335" size="100,100">&lt;!-- (if: visits &gt; 1)[
 	(link: &quot;Listen to Leila&quot;)[(show: ?leila)]
 	(hide: ?leila)
-]
+] --&gt;
 (if: $nerd_location is (passage:)&#39;s  name)[
 	(show: ?nerd_here)
 ]
@@ -161,7 +165,21 @@ You giggle. Of course you are. You set it all up on a plate, neatly aligned, bre
 (if: $jock_location is (passage:)&#39;s  name)[
 	(show: ?jock_here)
 ]
-</tw-passagedata><tw-passagedata pid="18" name="Master Bedroom" tags="" position="850,502" size="100,100">[[Return-&gt;Upper Floor]] </tw-passagedata><tw-passagedata pid="19" name="Nursery" tags="" position="865,642.3333333333334" size="100,100">The nursery is all decorated in pink, from the walls to the carpeted floor and every single piece of baby-safe furniture.
+</tw-passagedata><tw-passagedata pid="18" name="Master Bedroom" tags="" position="1026,645" size="100,100">This room feels less oppressively feminine than most rooms in this house. It has a poster bed and a vanity, but it is not entirely filled with frills and make-up implements to the point of redundancy...
+
+|leila&gt;[So, you decided to pay a visit to my chambers? Oh, I hope you don&#39;t mind the mess...]
+
+So this is your captor&#39;s bedroom... there must be something useful here somewhere, you are sure of it!
+
+(if: $inventory does not contain &quot;wedding ring&quot;)[[[Look in the vanity drawers-&gt;Vanity Stash]]]
+
+[[Rumage through the items on the vanity-&gt;Whore]]
+
+[[Look in the closet-&gt;Ballgown]]
+
+[[Return-&gt;Upper Floor]] 
+
+[[Return-&gt;Upper Floor]] </tw-passagedata><tw-passagedata pid="19" name="Nursery" tags="" position="856,818" size="100,100">The nursery is all decorated in pink, from the walls to the carpeted floor and every single piece of baby-safe furniture.
 
 |leila&gt;[Interesting choice of place to visit, sissy. Is it calling to you? Will you be needing a change any time soon...?]
 
@@ -173,20 +191,26 @@ There&#39;s seemingly not much of your interest here. There&#39;s a closet linin
 
 [[Look in the crib-&gt;Baby]]
 
-[[Return-&gt;Upper Floor]] </tw-passagedata><tw-passagedata pid="20" name="Bathroom" tags="" position="853,788" size="100,100">[[Return-&gt;Upper Floor]] </tw-passagedata><tw-passagedata pid="21" name="Dungeon" tags="deadend" position="1006,495" size="100,100">The dungeon is badly lit and quite hot and humid. All around you can see sex toys, contraptions and menacing instruments that you can&#39;t even imagine how they would interact with a human body. You can only suppose it might hurt.
+[[Return-&gt;Upper Floor]] </tw-passagedata><tw-passagedata pid="20" name="Bathroom" tags="deadend" position="846,964" size="100,100">The bathroom is small and clean and, of course, tiled in pink. There&#39;s a toilet in a corner and a mirror above the sink where you can see, thankfully, that you&#39;re still yourself.
+
+[[Return-&gt;Upper Floor]] </tw-passagedata><tw-passagedata pid="21" name="Dungeon" tags="deadend" position="1006,495" size="100,100">The dungeon is badly lit and quite hot and humid. All around you can see sex toys, contraptions and menacing instruments that you can&#39;t even imagine how they would interact with a human body. You can only suppose it might hurt.
 
 You start to realize you&#39;d better not be here.
 
-[[Return-&gt;Basement]]</tw-passagedata><tw-passagedata pid="22" name="Studio" tags="" position="1011,201" size="100,100">[[Return-&gt;Basement]]</tw-passagedata><tw-passagedata pid="23" name="Storage" tags="deadend" position="1056,348" size="100,100">The underground storage is has nothing but shelves of boxes and tins, organized side by side and separated by dark curtains.
+[[Return-&gt;Basement]]</tw-passagedata><tw-passagedata pid="22" name="Studio" tags="deadend" position="1011,201" size="100,100">The studio is dark and very cold, apparently the A/C has been running all the time here, an odd detail considering that there&#39;s no strong lighting that might need cooling here.
+
+The cameras are all off, but you still feel yourself being watched.
+
+[[Return-&gt;Basement]]</tw-passagedata><tw-passagedata pid="23" name="Storage" tags="deadend" position="1056,348" size="100,100">The underground storage is has nothing but shelves of boxes and tins, organized side by side and separated by dark curtains.
 
 [[Return-&gt;Basement]]
-(if: $control_room_discovered)[(click-goto: &quot;dark curtains&quot;, &quot;Control Room&quot;)]</tw-passagedata><tw-passagedata pid="24" name="Control Room" tags="" position="1181,347" size="100,100">|leila&gt;[(link: &quot;...&quot;)[
+(if: $control_room_discovered)[(click-goto: &quot;dark curtains&quot;, &quot;Control Room&quot;)]</tw-passagedata><tw-passagedata pid="24" name="Control Room" tags="impossible" position="1181,347" size="100,100">|leila&gt;[(link: &quot;...&quot;)[
 
 Oh, what a clever sissy we are, huh? I bet you never heard of paying no mind to the woman behind the curtain...
 
 No harm done, though. You found my control room, so what? It&#39;s time to have fun, then. You came to me, after all, so I&#39;ll take that as an offering...
 
-($sissy_ending: &quot;willing_sissy&quot;)]]</tw-passagedata><tw-passagedata pid="25" name="Babysitter" tags="sissy-ending" position="1171,566.3333333333334" size="100,100">The closet is full of outfits overflowing with cutesy and priss, from short dresses and tutus flaring with glitter to adorable overalls and onesies in pastel tones and infantile patterns. They&#39;re matched with feminine shoes and head dresses, bows and bracelets, all sorts of girly apparel in plastic and cloth.
+($sissy_ending: &quot;willing_sissy&quot;)]]</tw-passagedata><tw-passagedata pid="25" name="Babysitter" tags="sissy-ending" position="1157,769" size="100,100">The closet is full of outfits overflowing with cutesy and priss, from short dresses and tutus flaring with glitter to adorable overalls and onesies in pastel tones and infantile patterns. They&#39;re matched with feminine shoes and head dresses, bows and bracelets, all sorts of girly apparel in plastic and cloth.
 
 And underneath it all, a big bulging diaper bag sits amidst it all.
 
@@ -196,7 +220,7 @@ Your idle speculation is cut short by the crackling sound of speakers, and the p
 
 |leila&gt;[Well, look who we have here...]
 
-(link-reveal: &quot;Turn around&quot;)[==You spin on your ankles so fast your hair continues spinning and brushes you back on the side of the head.
+(link: &quot;Turn around&quot;)[==You spin on your ankles so fast your hair continues spinning and brushes you back on the side of the head.
 
 But, hold on...
 
@@ -204,7 +228,7 @@ But, hold on...
 
 Anyway, get ready for a whole lot of responsibilities, darling. No two sissy babies are the same, and I am very intent on giving my babies the best care. Or else... well, let&#39;s say there are always a spot open in the babies&#39; roster to be filled, and a new position for a babysitter can be opened for someon who, hopefully, won&#39;t screw up as easily. Got it?]
 
-($sissy_ending: &quot;babysitter&quot;)</tw-passagedata><tw-passagedata pid="26" name="Baby" tags="sissy-ending" position="1166,696" size="100,100">The crib is lined with pink blankets and fluffy pillows and stuffed animals, and it all smells of soft baby powder...
+($sissy_ending: &quot;babysitter&quot;)</tw-passagedata><tw-passagedata pid="26" name="Baby" tags="sissy-ending" position="1152,899" size="100,100">The crib is lined with pink blankets and fluffy pillows and stuffed animals, and it all smells of soft baby powder...
 
 (click: &quot;crib&quot;)[==You realize only too late that you&#39;ve climbed over the railing and into the softness as you were trapped behind bars. Your backside falls onto layers of cushion as your diapers touch down on blankets and mattress, letting you softly lie down with your legs up, watching the lulling sway of the mobile above.
 
@@ -214,7 +238,7 @@ You truly could not resist the call of the crib... predictable! Worry not your p
 
 Isn&#39;t that sweet, little babe?]
 
-($sissy_ending: &quot;baby&quot;)</tw-passagedata><tw-passagedata pid="27" name="Nursery Stash" tags="" position="1159,822" size="100,100">Under the changing table are these doors, a place for supplies. Diapers, baby powder, oil, wipes... (link-reveal: &quot;a pacifier?&quot;)[===
+($sissy_ending: &quot;baby&quot;)</tw-passagedata><tw-passagedata pid="27" name="Nursery Stash" tags="" position="1145,1025" size="100,100">Under the changing table are these doors, a place for supplies. Diapers, baby powder, oil, wipes... (link-reveal: &quot;a pacifier?&quot;)[===
 
 You pick up the odd item, wondering if it&#39;s misplaced. You put it in your pocket and pay no mind to it.
 
@@ -256,12 +280,12 @@ Pose after pose you test the limits of your flexibility, your polished toes can 
 
 Breathe all your cares away and give in, sissy. And, by the way, all that flexibilit is probably going to pay off nicely in the future. You&#39;ll see...]
 
-($sissy_ending: &quot;yoga&quot;)</tw-passagedata><tw-passagedata pid="31" name="The Patio" tags="" position="1017,40" size="100,100">Double-click this passage to edit it.</tw-passagedata><tw-passagedata pid="32" name="Ballerina" tags="sissy-ending" position="191,1131" size="100,100">You approach the rack and is taken over by an itch... a curiosity, perhaps. You wonder how high your legs can stretch after all. You start by lifting your foot around the height of your waist. Not a big deal, of course...
+($sissy_ending: &quot;yoga&quot;)</tw-passagedata><tw-passagedata pid="31" name="The Patio" tags="impossible" position="1017,40" size="100,100">Double-click this passage to edit it.</tw-passagedata><tw-passagedata pid="32" name="Ballerina" tags="sissy-ending" position="191,1131" size="100,100">You approach the rack and is taken over by an itch... a curiosity, perhaps. You wonder how high your legs can stretch after all. You start by lifting your foot around the height of your waist. Not a big deal, of course...
 
-(click: &quot;Go further&quot;)[==
-You decide to try higher. You can feel the fabric tightening around your thighs as your leg raises, your foot stretched and held above your chest, even. That&#39;s... something.
+(link: &quot;Go further&quot;)[==
+You decide to try higher. You can feel the fabric tightening around your thighs as your leg raises, your foot stretched and held above your chest, even. That&#39;s... somethineal
 
-(click: &quot;Go further&quot;)[==
+(link: &quot;Go further&quot;)[==
 The spandex stretches and hugs your legs as your foot goes up and up above your head and your tight updo. You exhale, standing on the tip of the toes of the foot that remains on the floor. That&#39;s a good stretch!
 
 |leila&gt;[Excellent stretch, sissy. You&#39;re now ready for the exercises... kick, kick, pirouette, and you&#39;ll be ready for your big recital in no time. Now go on your tippy-toes into the mirrored hall, so you can see yourself as you twirl and frolic, my primaballerina!]
@@ -317,7 +341,53 @@ You stumble through the door and grab the closest towel you can find, rubbing yo
 
 |leila&gt;[Don&#39;t dawdle, my dearies! You two look stunning, as usual! All fresh and ready for more sexy exercises for two! Get on going supporting each other as you both grow sexier and stronger, and, perhaps, don&#39;t waste too much time with the showers on, eh? I&#39;m still the one paying for the water and heat...]
 
-($sissy_ending: &quot;gym_duo&quot;)</tw-passagedata></tw-storydata>
+($sissy_ending: &quot;gym_duo&quot;)</tw-passagedata><tw-passagedata pid="36" name="Vanity Stash" tags="" position="1395,628" size="100,100">You walk to the vanity but you avoid the mirror and all the implements sitting on top. You go for the drawers, and they are surprisingly empty. Used cotton pads and crumpled wipes litter the space.
+
+(link: &quot;Rummage through the trash&quot;)[===Something clinks against the wood, and a bit more messing around thows the small and hard piece of metal against your hand. You pull from inside a golden ring, plain and simple.
+
+(set: $inventory to it + (a: &quot;wedding ring&quot;))\
+[[Close the stash-&gt;Master Bedroom]]</tw-passagedata><tw-passagedata pid="37" name="Whore" tags="sissy-ending" position="1323,760" size="100,100">You walk to the vanity and all the stuff scattered all over its top... may something useful be hidden in plain sight among all the tools and implements of feminization?
+
+Some part of you starts to wonder while looking at so many beauty implements... it seems so excessive. Would she even need all of that?
+
+|choices&gt;[(link: &quot;Put on some lipstick&quot;)[(hide: ?choices)(show: ?lipstick)]
+
+(link: &quot;Spread some foundation&quot;)[(hide: ?choices)(show: ?foundation)]
+
+(link: &quot;Paint your eyelids&quot;)[(hide: ?choices)(show: ?shadow)]
+]
+
+|lipstick)[You pick up one tube and twist it, revealing the intense dark magenta stick inside. Without thinking, you take it to your mouth and slip it on your lips, running it along the curve of your lips in a loop.
+
+It feels so inexplicably good (link-reveal: &quot;you can&#39;t help but go further.&quot;)[(show: ?end)]]
+|foundation)[You pick up the small box and click it open, revealing the sponge pad over the flesh-colored powder. You press the pad on the powder and against your skin, spreading it all over your face.
+
+In a few more padfuls of color your whole skin is covered. (link-reveal: &quot;Why stop now?&quot;)[(show: ?end)]]
+|shadow)[You pick up a case and opens it to reveal a whole palette of colors. Taking the brush in hand, you pick one and then smear it over your closed lid. You do so until the whole of the lid is colored in the smoky tone and then do the other. You feel compelled to make sure both sides match after you&#39;re done.
+
+You look into the mirror and blink your eyes, seeing their new framing color in a blur. (link-reveal: &quot;Now what?&quot;)[(show: ?end)]]
+
+|end)[==You pick more and more items from the vanity, applying one after the other, your face becoming covered in color, layer after layer... you only come out of that furious haze of make-up application when the loudspeaker crackles above.
+
+|leila&gt;[Hey, hey, sissy! Calm down! It&#39;s been loads of fun seeing you put on more and more make-up, but you know what they say about girls who wear *that* much...
+
+...Actually, that&#39;s not a bad idea. We&#39;ll find a suitable outfit, give you a nice colorful wig and you can just waltz outside and pick a street corner.
+
+After all, all that make-up you&#39;ve been wasting doesn&#39;t come for free, honey. Better start giving mommy some of that money back!]
+
+($sissy_ending: &quot;whore&quot;)</tw-passagedata><tw-passagedata pid="38" name="Ballgown" tags="sissy-ending" position="1243,515.3333333333334" size="100,100">The closet is full of outfits... just outfits a woman might wear. Not sissy exaggerated outfits, it&#39;s all shirts, jeans, light blouses, a few sundresses, some shorts...
+
+And one ballgown. It really seems out of place, otherwise you&#39;d have  to admit it seems to be calling to you. And that would be ridiculous.
+
+(click: &quot;ballgown&quot;)[==You pick it out of the closet. As an impulse, you hold it over your body and turn to the mirror. To your surprise, it superimposes your body shape very well. It&#39;s almost... your size.
+
+(link: &quot;Put it on&quot;)[==It all seems to happen as if you&#39;re out of your body. Your clothes on the floor, the dress over your head... did you get a new hairdo? Why does your face look... different?
+
+|leila&gt;[Ladies and gentlemen, make way for the belle of the ball... I knew leaving a little bait in my room would pay off for the right occasion!
+
+There&#39;s no time to argue, darling. Look at yourself! You&#39;re all ready now, perfect face, perfect hair, perfect dress... give us a twirl and be on your way, watch out so you can pass by the doors and I&#39;m sure you&#39;ll find your way to the ballroom! You&#39;ll dance the night away, meet your perfect match and then... well,I guarantee you won&#39;t turn back when the clock chimes midnight, so all there is left is your happily ever after...]
+
+($sissy_ending: &quot;ballgown&quot;)</tw-passagedata><tw-passagedata pid="39" name="Header: Enchantments" tags="header" position="207.66666666666663,205" size="100,100">(enchant: ?leila, (css: &quot;padding: 8pt&quot;) + (text-size: 0.75) + (text-style: &quot;italic&quot;, &quot;emboss&quot;) + (box: &quot;=XXXXXXXX=&quot;) + (color: (rgb: 0, 0, 0, 0.5)) + (background: (rgb: 255, 128, 128)))</tw-passagedata></tw-storydata>
 <script title="Twine engine code" data-main="harlowe">"use strict";var _slicedToArray=function(){return function(e,t){if(Array.isArray(e))return e;if(Symbol.iterator in Object(e))return function(e,t){var n=[],r=!0,i=!1,a=void 0;try{for(var o,s=e[Symbol.iterator]();!(r=(o=s.next()).done)&&(n.push(o.value),!t||n.length!==t);r=!0);}catch(e){i=!0,a=e}finally{try{!r&&s.return&&s.return()}finally{if(i)throw a}}return n}(e,t);throw new TypeError("Invalid attempt to destructure non-iterable instance")}}(),_typeof="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e};function _defineProperty(e,t,n){return t in e?Object.defineProperty(e,t,{value:n,enumerable:!0,configurable:!0,writable:!0}):e[t]=n,e}function _toConsumableArray(e){if(Array.isArray(e)){for(var t=0,n=Array(e.length);t<e.length;t++)n[t]=e[t];return n}return Array.from(e)}!function(){
 /**
  * @license almond 0.3.3 Copyright jQuery Foundation and other contributors.
