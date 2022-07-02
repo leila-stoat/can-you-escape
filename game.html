@@ -75,9 +75,14 @@ There are doors into a myriad of rooms, a door that leads out, and stairs going 
 (set: $control_room_discovered to false)
 }</tw-passagedata><tw-passagedata pid="8" name="Header: Macros" tags="header" position="75,203" size="100,100">{
 
+(set: $sissy_ending_default to &quot;willing_sissy.png&quot;)
 (set: $sissy_ending to (macro: str-type _sissy_name, [
     (unless: _sissy_name is in $sissies_found)[(set: $sissies_found to it + (a: _sissy_name))]
-    (output:)[(print: &quot;&lt;img src=&#39;img/&quot; + _sissy_name + &quot;.png&#39; /&gt;&quot;)]
+    (output:)[(print: &quot;&lt;img src=&#39;img/&quot; + _sissy_name + &quot;.png&#39; onerror=\&quot;if (this.src != &#39;&quot; + $sissy_ending_default + &quot;&#39;) {
+	console.warn(&#39;portrait for sissy %s not found&#39;, &#39;&quot; + _sissy_name + &quot;&#39;);
+	this.src = &#39;&quot; + $sissy_ending_default + &quot;&#39;;
+	this.onerror = &#39;&#39;;
+	}\&quot;/&gt;&quot;)]
 ]))
 }</tw-passagedata><tw-passagedata pid="9" name="Sissy Gallery" tags="" position="352,317" size="100,100">{
 (for: each _sissy, ...$sissies_found)[
