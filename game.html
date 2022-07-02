@@ -15,7 +15,11 @@
   padding: 4%;
   background-image: url("img/sissy_frame.png");
   background-size: 100%;
-}</style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-tag name="deadend" color="red"></tw-tag>,<tw-tag name="footer" color="blue"></tw-tag>,<tw-tag name="header" color="blue"></tw-tag>,<tw-tag name="impossible" color="yellow"></tw-tag>,<tw-tag name="sissy" color="purple"></tw-tag>,<tw-tag name="sissy-ending" color="purple"></tw-tag>,<tw-tag name="startup" color="blue"></tw-tag><tw-passagedata pid="1" name="Intro" tags="" position="401,58" size="100,100">...
+}</style><script role="script" id="twine-user-script" type="text/twine-javascript">window._img_sissy_fallback = function(sissy_name) {
+	console.warn("portrait for sissy %s not found", sissy_name);
+	this.src = "img/mannequin.png";
+	this.onerror = '';
+}</script><tw-tag name="deadend" color="red"></tw-tag>,<tw-tag name="footer" color="blue"></tw-tag>,<tw-tag name="header" color="blue"></tw-tag>,<tw-tag name="impossible" color="yellow"></tw-tag>,<tw-tag name="sissy" color="purple"></tw-tag>,<tw-tag name="sissy-ending" color="purple"></tw-tag>,<tw-tag name="startup" color="blue"></tw-tag><tw-passagedata pid="1" name="Intro" tags="" position="401,58" size="100,100">...
 
 [[Wake up-&gt;Holding Cell]]</tw-passagedata><tw-passagedata pid="2" name="Holding Cell" tags="" position="601,201" size="100,100">|leila&gt;[Wake up, sissy boy!
 
@@ -78,14 +82,11 @@ There are doors into a myriad of rooms, a door that leads out, and stairs going 
 (set: $sissy_ending_default to &quot;mannequin&quot;)
 (set: $sissy_ending to (macro: str-type _sissy_name, [
     (unless: _sissy_name is in $sissies_found)[(set: $sissies_found to it + (a: _sissy_name))]
-    (output:)[(print: &quot;&lt;img src=&#39;img/&quot; + _sissy_name + &quot;.png&#39; onerror=\&quot;
-	console.warn(&#39;portrait for sissy %s not found&#39;, &#39;&quot; + _sissy_name + &quot;&#39;);
-	this.src = &#39;img/&quot; + $sissy_ending_default + &quot;.png&#39;;
-	this.onerror = &#39;&#39;;\&quot;/&gt;&quot;)]
+    (output:)[(print: &quot;&lt;img src=&#39;img/&quot; + _sissy_name + &quot;.png&#39; onerror=\&quot;window._img_sissy_fallback(&#39;&quot;+ _sissy_name +&quot;&#39;);\&quot;/&gt;&quot;)]
 ]))
 }</tw-passagedata><tw-passagedata pid="9" name="Sissy Gallery" tags="" position="352,317" size="100,100">{
 (for: each _sissy, ...$sissies_found)[
-	(print: &quot;&lt;img class=&#39;gallery&#39; src=&#39;img/&quot; + _sissy + &quot;.png&#39; /&gt;&quot;)
+	(print: &quot;&lt;img class=&#39;gallery&#39; src=&#39;img/&quot; + _sissy + &quot;.png&#39; onerror=\&quot;window._img_sissy_fallback(&#39;&quot;+ _sissy_name +&quot;&#39;);\&quot;/&gt;&quot;)
 ]
 }
 
